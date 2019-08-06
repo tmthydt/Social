@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { getLocaleEraNames } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { Posts } from '../posts';
 
 @Component({
   selector: 'social-posts',
@@ -8,52 +8,34 @@ import { getLocaleEraNames } from '@angular/common';
 })
 export class SocialPostsComponent implements OnInit {
 
-  @Input() posts: string[];
-  @Output() onRemoveColor = new EventEmitter<any>();
-  @Output() onAddColor = new EventEmitter<any>();
-  
-  // parent
+  visible: boolean = true;
 
-  posts: string[] = [
-    "Lorem ipsum dolor sit amet, modus diceret eu sit, id tritani sententiae dissentias "
-    "Lorem ipsum dolor sit amet, modus diceret eu sit, id tritani sententiae dissentias ",
-    "Lorem ipsum dolor sit amet, modus diceret eu sit, id tritani sententiae dissentias ",
-    "Lorem ipsum dolor sit amet, modus diceret eu sit, id tritani sententiae dissentias ",
-    "Blue",
-    "Indigo",
-    "Violet"
+  postList: Posts[] = [
+    {
+      title: "My First Post",
+      thought: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sodales ut etiam sit amet. "
+    },
+    {
+      title: "My Second Post",
+      thought: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sodales ut etiam sit amet. "
+    }
   ];
 
 
-
-    
-
   constructor() { }
 
-  removeColor(index: number): void {
-    console.log(index);
-    this.onRemoveColor.emit(index);
-    
+  addPost(form): void {
+    this.postList.unshift(form.value);
   }
 
-  addColor(form): void {
-    this.onAddColor.emit(form.value.colorToAdd);
+  removePost(index: number): void {
+    // console.log(index);
+    this.postList.splice(index, 1);
   }
 
-  //parent 
-
-  addColor(color: string) {
-    console.log(color);
-    this.colors.push(color);
-    
+  displayForm(): void {
+    this.visible = !this.visible;
   }
-
-  removeColor(index: number): void {
-    console.log(index);
-    this.colors.splice(index, 1);
-    
-  }
-
 
   ngOnInit() {
   }

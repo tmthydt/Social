@@ -1,0 +1,35 @@
+section {
+    position: relative;
+    border-bottom: 1px solid #f3f1f7;
+    margin: 15px;
+}
+
+p, i {
+    display: inline-block;
+}
+
+i:hover {
+    cursor: pointer;
+}
+
+p {
+    width: 90%;
+    margin: 0;
+}
+
+.delete_btn {
+    position: absolute;
+    right: 0;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    transform: translateX(-125%);
+    font-size: 24px;
+}
+
+.like_btn{
+    color: rgb(3, 169, 244);
+}

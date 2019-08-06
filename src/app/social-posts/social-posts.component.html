@@ -1,8 +1,10 @@
-<h1> What do you say?</h1>
-
-<li *ngFor="let item of items; index as i;">...</li>
-
-<button> New Post </button>
-
-<post></post>
-<postForm></postForm>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<main>
+    <h1>My Thoughts</h1>
+    <button (click)="displayForm()" *ngIf="visible">New Thoughts</button>
+    <post-form *ngIf="!visible" (onAddPost)="addPost($event)" (onDisplayForm)="displayForm()"></post-form>
+    <section>
+        <post *ngFor="let post of postList; index as i" [post]="post" (onRemovePost)="removePost($event)"></post>
+        <!-- <post [postList]="postList" (onRemovePost)="removePost($event)"></post> -->
+    </section>
+</main>

@@ -1,0 +1,28 @@
+<section>
+  <div>
+    <i class="like_btn" (click)="likeVote()" class="like_btn material-icons">
+      thumb_up
+    </i>
+    <p *ngIf="like">{{ like }}</p>
+  </div>
+  <p [ngStyle]="{'font-size': '24px'}">{{ post.title }}</p>
+  <p><i (click)="removePost(index)" class="delete_btn material-icons">clear</i>{{ post.thought }}</p>
+</section>
+
+
+
+<!-- <p>{{ post }}
+    <i (click)="removePost(i)" class="material-icons">
+      clear
+    </i>
+  </p> -->
+
+
+<!-- <section *ngFor="let post of postList; index as i">
+  <p>{{ post.title }}</p>
+  <p>{{ post.thought }}
+    <i (click)="removePost(i)" class="material-icons">
+      clear
+    </i>
+  </p>
+</section> -->
